@@ -4,7 +4,12 @@ import { createContext, useState } from "react";
 const todoContext = createContext();
 
 export default function Provider({children}){
+
+    // Todo list item data
     const[todo, setTodo] = useState([]);
+
+    // Status of our todo items
+    const [todoStatus, setTodoStatus] = useState(null);
 
     // Creating Todo item
     const createTodo = (item) => {
@@ -43,7 +48,9 @@ export default function Provider({children}){
         createTodo,
         todoStatusChange,
         deleteItem,
-        resetAllTodos
+        resetAllTodos,
+        setTodoStatus,
+        todoStatus
     };
 
     return <todoContext.Provider value={valueToShare}>

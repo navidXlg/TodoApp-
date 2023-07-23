@@ -1,6 +1,7 @@
 import SearchBar from "./componants/SearchBar";
 import TodoList from "./componants/TodoList";
 import useTodoContext from "./Hooks/useTodoContext";
+import DropDown from "./componants/DropDown";
 
 export default function App(){
   const {resetAllTodos, todo} = useTodoContext();
@@ -16,5 +17,6 @@ export default function App(){
             <SearchBar/>
             <TodoList/>
             {todo.length > 0 ? <button onClick={handelClick}>Clear</button> : "" } 
+            <DropDown/>
         </div>
 };
