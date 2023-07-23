@@ -21,14 +21,19 @@ export default function Provider({children}){
              return tode.id === item.id ? {...tode, mode : !tode.mode} : tode;
         });
         setTodo(updateTodo);
-        console.log(todo);
     };
 
+    // Delete every todo item
     const deleteItem = (item) => {
         const updateTodo = todo.filter(tode => {
             return !(tode.id === item.id);
         });
         setTodo(updateTodo);
+    };
+
+    // Rest all todos
+    const resetAllTodos = () => {
+        setTodo([])
     };
     
     // Provide data for share in app
@@ -37,7 +42,8 @@ export default function Provider({children}){
         setTodo,
         createTodo,
         todoStatusChange,
-        deleteItem
+        deleteItem,
+        resetAllTodos
     };
 
     return <todoContext.Provider value={valueToShare}>
