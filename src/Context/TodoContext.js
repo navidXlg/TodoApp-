@@ -17,11 +17,18 @@ export default function Provider({children}){
 
     // Change Active Mode
     const todoStatusChange = (item) => {
-       const updateTodo =  todo.map(todo => {
-             return todo.id === item.id ? {...todo, mode : !todo.mode} : todo;
+       const updateTodo =  todo.map(tode => {
+             return tode.id === item.id ? {...tode, mode : !tode.mode} : tode;
         });
         setTodo(updateTodo);
         console.log(todo);
+    };
+
+    const deleteItem = (item) => {
+        const updateTodo = todo.filter(tode => {
+            return !(tode.id === item.id);
+        });
+        setTodo(updateTodo);
     };
     
     // Provide data for share in app
@@ -29,7 +36,8 @@ export default function Provider({children}){
         todo,
         setTodo,
         createTodo,
-        todoStatusChange
+        todoStatusChange,
+        deleteItem
     };
 
     return <todoContext.Provider value={valueToShare}>

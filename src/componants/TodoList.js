@@ -3,18 +3,25 @@ import useTodoContext from "../Hooks/useTodoContext";
 
 
 export default function TodoList(){
-    const {todo, todoStatusChange} = useTodoContext();
+    const {todo, todoStatusChange, deleteItem } = useTodoContext();
 
     // Handeling click event
     const handelClick = (item) => {
-        todoStatusChange(item)
+        todoStatusChange(item);
+    };
+
+    // Handeling deletiing item
+    const handelClickDelete = (item) => {
+        deleteItem(item);
     };
 
 
-
     const renderItems = todo.map(item => {
-        return <div onClick={() => handelClick(item)} key={item.id}>
-                  <TodoItem value = {item}/>
+        return <div key={item.id}>
+                  <div onClick={() => handelClick(item)}>
+                     <TodoItem value = {item} />
+                  </div>
+                  <button onClick={() => handelClickDelete(item)}>remove</button>
                </div>
     });
 
