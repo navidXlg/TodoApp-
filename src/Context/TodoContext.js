@@ -10,16 +10,26 @@ export default function Provider({children}){
     const createTodo = (item) => {
         const updateTodo = [
             ...todo,
-            {id : Math.trunc(Math.random()*1000), label : item}
+            {id : Math.trunc(Math.random()*1000), label : item, mode:true}
         ];
         setTodo(updateTodo);
+    };
+
+    // Change Active Mode
+    const todoStatusChange = (item) => {
+       const updateTodo =  todo.map(todo => {
+             return todo.id === item.id ? {...todo, mode : !todo.mode} : todo;
+        });
+        setTodo(updateTodo);
+        console.log(todo);
     };
     
     // Provide data for share in app
     const valueToShare = {
         todo,
         setTodo,
-        createTodo
+        createTodo,
+        todoStatusChange
     };
 
     return <todoContext.Provider value={valueToShare}>

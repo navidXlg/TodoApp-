@@ -5,7 +5,7 @@ import useTodoContext from "../Hooks/useTodoContext";
 
 export default function SearchBar(){
     // Todo state setter
-    const {createTodo, todo} = useTodoContext();
+    const {createTodo} = useTodoContext();
 
     // Componant State of serch term
     const [term, setTerm] = useState("");
