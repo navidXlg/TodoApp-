@@ -44,14 +44,14 @@ export default function DropDown(){
     
     const renderOptions = data.map(item => {
         return <div key={Math.trunc(Math.random()*1000)}>
-                  <p className=" cursor-pointer hover:bg-zinc-400 p-3 border border-cyan-200 w-full" onClick={() => handelClikOption(item)} >{item.text}</p>
+                  <p className=" cursor-pointer hover:bg-zinc-400 bg-red-400 p-3 border border-cyan-200 w-full" onClick={() => handelClikOption(item)} >{item.text}</p>
                </div>
     });
  
 
 
-    return <div className="w-48 m-3" ref={element}>
-            <p onClick = {handelClick} className="p-3 border border-cyan-200v w-full">{todoStatus ? todoStatus : "All"}</p>
+    return <div className="w-38 m-3 absolute -top-2 z-10 left-2  " ref={element}>
+            <p onClick = {handelClick} className="p-3 border border-cyan-200v w-full cursor-pointer">{todoStatus ? todoStatus : "All"}</p>
             {isOpen && renderOptions}
            </div>
 };
