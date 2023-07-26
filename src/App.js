@@ -15,7 +15,7 @@ export default function App(){
 
 // Rember to change it 
   return <div className="flex items-center justify-center bg-zinc-100 min-h-screen w-full  text-xl  ">
-          <div className="bg-zinc-200 border-spacing-1 border-slate-600 rounded-xl p-10 flex shadow-xl hover:p-12 transition-all flex-col items-center justify-between relative">
+          <div className="bg-zinc-200 border-spacing-1 border-slate-600 rounded-xl p-10 flex shadow-xl transition-all flex-col items-center justify-between relative">
             <h2>Todo App</h2>
             <SearchBar/>
             <DropDown/>

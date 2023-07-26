@@ -9,7 +9,7 @@ export default function Provider({children}){
     const[todo, setTodo] = useState([]);
 
     // Status of our todo items
-    const [todoStatus, setTodoStatus] = useState(null);
+    const [todoStatus, setTodoStatus] = useState("All");
 
     // Creating Todo item
     const createTodo = (item) => {
@@ -49,8 +49,8 @@ export default function Provider({children}){
         todoStatusChange,
         deleteItem,
         resetAllTodos,
+        todoStatus,
         setTodoStatus,
-        todoStatus
     };
 
     return <todoContext.Provider value={valueToShare}>
